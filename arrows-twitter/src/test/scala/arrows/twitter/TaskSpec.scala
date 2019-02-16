@@ -1,5 +1,6 @@
 package arrows.twitter
 
+import com.twitter.conversions.time._
 import com.twitter.util.Duration
 import com.twitter.util.Await
 import com.twitter.util.Try
@@ -7,7 +8,6 @@ import com.twitter.util.Throw
 import com.twitter.util.Future
 import com.twitter.util.Return
 import com.twitter.util.FuturePool
-import com.twitter.util.TimeConversions._
 import com.twitter.util.TimeoutException
 import com.twitter.util.Stopwatch
 import com.twitter.util.JavaTimer

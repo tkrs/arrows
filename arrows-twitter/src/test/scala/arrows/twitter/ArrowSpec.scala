@@ -1,8 +1,8 @@
 package arrows.twitter
 
 import language.postfixOps
+import com.twitter.conversions.time._
 import com.twitter.util._
-import com.twitter.util.TimeConversions._
 
 class ArrowSpec extends Spec {
 

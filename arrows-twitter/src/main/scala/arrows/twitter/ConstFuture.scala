@@ -64,9 +64,11 @@ trait ConstFuture[T] extends Future[T] {
 class ReturnFuture[T](r: T) extends ConstFuture[T] {
   override final def result(timeout: Duration)(implicit permit: Awaitable.CanAwait): T = r
   override final def toTry = Return(r)
+  override final def transformTry[U](f: Try[T] => Try[U]) = Future.const(f(Return(r)))
 }
 
 class ThrowFuture[T](ex: Throwable) extends ConstFuture[T] {
   override final def result(timeout: Duration)(implicit permit: Awaitable.CanAwait): T = throw ex
   override final def toTry = Throw(ex)
+  override final def transformTry[U](f: Try[T] => Try[U]) = Future.const(f(Throw(ex)))
 }
